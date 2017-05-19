@@ -14,5 +14,13 @@ sudo apt-get install libcurl4-openssl-dev libssl-dev
 ```
 
 ```r
+install.packages('devtools')
+install.packages('httr')
+install.packages('openssl')
+install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))
+devtools::install_github('IRkernel/IRkernel')
+IRkernel::installspec()
+
+# Sys.getenv('PATH') : If jupyter-kernelspec is not found in $PATH
 
 ```
