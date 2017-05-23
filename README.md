@@ -52,10 +52,11 @@ Description=Jupyter Notebook
 [Service]
 Type=simple
 PIDFile=/run/jupyter.pid
-ExecStart=/home/bfortuner/anaconda3/bin/jupyter-notebook --config=/home/pydemia/.jupyter/jupyter_notebook_config.py
+ExecStart=/home/bfortuner/anaconda3/bin/jupyter-notebook 
+#--config=/home/pydemia/.jupyter/jupyter_notebook_config.py
 User=pydemia
 Group=pydemia
-WorkingDirectory=/home/pydemia/workplace
+WorkingDirectory=/home/pydemia/workplaces
 Restart=always
 RestartSec=10
 
