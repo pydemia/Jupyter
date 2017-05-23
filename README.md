@@ -12,6 +12,31 @@ conda install ipykernel
 
 ## Jupyter Server
 
+### Prepare a hashed password
+
+Automatically:
+```sh
+jupyter notebook password
+Enter password:  ****
+Verify password: ****
+[NotebookPasswordApp] Wrote hashed password to /Users/you/.jupyter/jupyter_notebook_config.json
+```
+
+Manually:
+```py
+from notebook.auth import passwd
+passwd()
+Enter password:
+Verify password:
+#Out[2]: '<hashed_password>'
+```
+
+Then, `jupyter_notebook_config.py`:
+```vi
+c.NotebookApp.password = u'<hashed_password>'
+```
+
+
 ### Launch as a Daemon(Autostart)
 
 Create a Service: 
