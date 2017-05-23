@@ -1,5 +1,21 @@
-# Jupyter Server
+# Jupyter
 
+
+
+## Jupyter Server
+
+
+## Jupyter Kernels
+
+### conda environment Python2.7
+
+```sh
+conda install ipykernel
+conda create -n Python2.7 python=2.7 ipykernel -y
+source activate Python2.7
+python -m ipykernel install --user
+
+```
 
 ### R kernel
 
