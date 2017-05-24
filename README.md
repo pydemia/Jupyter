@@ -90,6 +90,11 @@ python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
 
 ```
 
+Remove:
+```sh
+conda env remove <Env Name>
+```
+
 ### R kernel
 
 ```sh
