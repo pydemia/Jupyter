@@ -124,7 +124,7 @@ jupyter kernelspec list
 ### Remove Kernels
 
 ```sh
-jupyter kernelspec <kernel name>
+jupyter kernelspec remove <kernel name>
 ```
 
 
