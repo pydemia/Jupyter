@@ -9,6 +9,11 @@ conda install -c conda-forge nb_conda_kernels
 conda install ipykernel
 ```
 
+Remove conda env:
+```sh
+conda env remove --name <Env Name>
+```
+
 
 ## Jupyter Server
 
