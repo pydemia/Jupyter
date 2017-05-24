@@ -126,3 +126,52 @@ jupyter kernelspec list
 ```sh
 jupyter kernelspec <kernel name>
 ```
+
+
+# JupyterHub
+
+## Installation
+
+```sh
+sudo apt-get install npm
+python3 -m pip install jupyterhub
+sudo npm install -g configurable-http-proxy
+```
+
+## Configuration
+
+```sh
+c.JupyterHub.base_url = '/'
+c.JupyterHub.cleanup_proxy = True
+
+## The ip for this process
+c.JupyterHub.hub_ip = '127.0.0.1'
+
+## The port for this process
+c.JupyterHub.hub_port = 8081
+
+## The public facing ip of the whole application (the proxy)
+c.JupyterHub.ip = ''
+
+## The public facing port of the proxy
+c.JupyterHub.port = 8000
+
+## The ip for the proxy API hadlers
+c.JupyterHub.proxy_api_ip = '127.0.0.1'
+
+## The port for the proxy API hadlers
+c.JupyterHub.peroxy_api_port = 0
+
+## The IP address (or hostname) the single-user server should listen on.
+c.Spawner.ip = '127.0.0.1'
+
+## Maximum number of bytes a single-user notebook server is allowed to use.
+
+
+
+```
+
+
+
+
+
