@@ -80,6 +80,8 @@ systemctl restart jupyter.service
 conda create -n Python2.7 python=2.7 ipykernel -y
 source activate Python2.7
 python -m ipykernel install --user
+python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
+/path/to/kernel/env/bin/python -m ipykernel install --prefix=/path/to/jupyter/env --name 'python-my-env'
 
 ```
 
@@ -105,4 +107,17 @@ IRkernel::installspec()
 
 # Sys.getenv('PATH') : If jupyter-kernelspec is not found in $PATH
 
+```
+
+
+### Show Kernels
+
+```sh
+jupyter kernelspec list
+```
+
+### Remove Kernels
+
+```sh
+jupyter kernelspec <kernel name>
 ```
