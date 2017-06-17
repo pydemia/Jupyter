@@ -205,3 +205,18 @@ jupyter nbextension enable jupyter_themes/theme_selector
 ```
 
 Done!
+
+# Variable Explorer
+
+## Installation
+
+```sh
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+```
+
+## Activation
+```sh
+jupyter nbextension enable varInspector/main
+```
+
