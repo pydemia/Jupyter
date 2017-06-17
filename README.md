@@ -204,7 +204,7 @@ cd ..
 jupyter nbextension enable jupyter_themes/theme_selector
 ```
 
-Done!
+Done.
 
 # Variable Explorer
 
@@ -220,3 +220,6 @@ jupyter contrib nbextension install --user
 jupyter nbextension enable varInspector/main
 ```
 
+Done.
+
+![varInspector_img](https://github.com/pydemia/Jupyter/blob/master/varInspector_image.png)
