@@ -220,6 +220,15 @@ jupyter contrib nbextension install --user
 jupyter nbextension enable varInspector/main
 ```
 
+
+# reST(`.rst`)
+
+## Installation
+
+```sh
+sudo apt-get install pandoc
+```
 Done.
+
 
 ![varInspector_img](https://github.com/pydemia/Jupyter/blob/master/varInspector_image.png)
