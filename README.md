@@ -126,7 +126,7 @@ install.packages('devtools')
 install.packages('httr')
 install.packages('openssl')
 install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))
-devtools::install_github('IRkernel/IRkernel')
+devtools::install_github('IRkernel/IRkernel', force=TRUE)
 IRkernel::installspec()
 
 # Sys.getenv('PATH') : If jupyter-kernelspec is not found in $PATH
