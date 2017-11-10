@@ -15,6 +15,20 @@ conda env remove --name <Env Name>
 ```
 
 
+## JupyterHub
+
+```sh
+sudo apt-get install npm nodejs-legacy
+sudo npm install -g configurable-http-proxy
+pip install jupyterhub
+jupyterhub --generate-config
+
+```
+
+```sh
+jupyterhub --ip 10.0.1.2 --port 443 --ssl-key my_ssl.key --ssl-cert my_ssl.cert
+```
+
 ## Jupyter Server
 
 ### Prepare a hashed password
