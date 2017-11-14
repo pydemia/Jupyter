@@ -133,6 +133,19 @@ IRkernel::installspec()
 
 ```
 
+### Julia kernel
+
+```sh
+julia
+```
+
+```jl
+Pkg.add("IJulia")
+```
+
+```sh
+vim .local/share/jupyter/kernels/julia-0.6/kernel.json
+```
 
 ### Show Kernels
 
