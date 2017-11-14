@@ -9,18 +9,66 @@ conda install -c conda-forge nb_conda_kernels
 conda install ipykernel
 ```
 
-```sh
-conda install -c conda-forge jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
-jupyter nbextension enable codefolding/main
-conda install -c conda-forge jupyter_nbextensions_configurator
-jupyter nbextensions_configurator enable --user
-```
 
 Remove conda env:
 ```sh
 conda env remove --name <Env Name>
 ```
+
+# Jupyter Extensions
+
+```sh
+conda install -c conda-forge jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+
+conda install -c conda-forge jupyter_nbextensions_configurator
+jupyter nbextensions_configurator enable --user
+
+jupyter nbextension enable codefolding/main
+```
+
+# Jupyter Theme
+
+## Installation
+
+```sh
+jupyter --data-dir  # /home/pydemia/.local/share/jupyter
+```
+
+```sh
+cd ~/.local/share/jupyter
+mkdir -p nbextensions
+cd nbextensions
+mkdir jupyter_themes
+cd jupyter_themes
+
+wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_selector.js
+
+```
+
+## Activation
+
+```sh
+cd ..
+jupyter nbextension enable jupyter_themes/theme_selector
+```
+
+Done.
+
+# Variable Explorer
+
+## Installation
+
+```sh
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+```
+
+## Activation
+```sh
+jupyter nbextension enable varInspector/main
+```
+
 
 
 ## JupyterHub
@@ -209,50 +257,6 @@ c.Spawner.ip = '127.0.0.1'
 
 
 
-```
-
-
-
-# Jupyter Theme
-
-## Installation
-
-```sh
-jupyter --data-dir  # /home/pydemia/.local/share/jupyter
-```
-
-```sh
-cd ~/.local/share/jupyter
-mkdir -p nbextensions
-cd nbextensions
-mkdir jupyter_themes
-cd jupyter_themes
-
-wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_selector.js
-
-```
-
-## Activation
-
-```sh
-cd ..
-jupyter nbextension enable jupyter_themes/theme_selector
-```
-
-Done.
-
-# Variable Explorer
-
-## Installation
-
-```sh
-pip install jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
-```
-
-## Activation
-```sh
-jupyter nbextension enable varInspector/main
 ```
 
 
