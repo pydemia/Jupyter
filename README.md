@@ -9,6 +9,14 @@ conda install -c conda-forge nb_conda_kernels
 conda install ipykernel
 ```
 
+```sh
+conda install -c conda-forge jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+jupyter nbextension enable codefolding/main
+conda install -c conda-forge jupyter_nbextensions_configurator
+jupyter nbextensions_configurator enable --user
+```
+
 Remove conda env:
 ```sh
 conda env remove --name <Env Name>
