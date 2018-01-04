@@ -90,11 +90,18 @@ jupyterhub --generate-config
 
 ```
 
+
 ```sh
 jupyterhub --ip 10.0.1.2 --port 443 --ssl-key my_ssl.key --ssl-cert my_ssl.cert
 ```
 
-## Jupyter Server
+## JupyterLab
+
+```
+conda install -c conda-forge jupyterlab
+
+jupyter lab
+```
 
 ### Prepare a hashed password
 
