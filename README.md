@@ -36,6 +36,12 @@ jupyter nbextensions_configurator enable --user
 jupyter nbextension enable codefolding/main
 ```
 
+`Tex` : An Extension for `pdf` support.
+
+```sh
+sudo apt-get install texlive-xetex
+```
+
 # Jupyter Theme
 
 ## Installation
