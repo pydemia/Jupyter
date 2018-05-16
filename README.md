@@ -248,6 +248,36 @@ python3 -m pip install jupyterhub
 sudo npm install -g configurable-http-proxy
 ```
 
+## Encryption
+
+```sh
+openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout ___.key -out ___.crt
+```
+
+```sh
+Generating a 1024 bit RSA private key
+..................................++++++
+..++++++
+writing new private key to 'jupyterhub.key'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:KR
+State or Province Name (full name) [Some-State]:
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:pydemia-server
+Email Address []:
+```
+
+
+
 ## Configuration
 
 ```sh
@@ -277,7 +307,15 @@ c.Spawner.ip = '127.0.0.1'
 
 ## Maximum number of bytes a single-user notebook server is allowed to use.
 
+## Path to SSL certificate file for the public facing interface of the proxy
+#
+#  Use with ssl_key
+c.JupyterHub.ssl_cert = '/home/pydemia/.ssl/___.crt'
 
+## Path to SSL key file for the public facing interface of the proxy
+#
+#  Use with ssl_cert
+c.JupyterHub.ssl_key = '/home/pydemia/.ssl/___.key'
 
 ```
 
