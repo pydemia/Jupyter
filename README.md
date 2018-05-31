@@ -24,6 +24,49 @@ Remove conda env:
 conda env remove --name <Env Name>
 ```
 
+## `activate.d` to set the environment variables for each env
+
+```sh
+cd anaconda3/envs/<your-envs>
+mkdir -p ./etc/conda/activate.d
+mkdir -p ./etc/conda/deactivate.d
+touch ./etc/conda/activate.d/env_vars.sh
+touch ./etc/conda/deactivate.d/env_vars.sh
+```
+
+edit `./etc/conda/activate.d/env_vars.s` first:
+
+```sh
+vim ./etc/conda/activate.d/env_vars.sh
+```
+
+```sh
+#!/bin/sh
+
+export MY_KEY='secret-key-value'
+export MY_FILE=/path/to/my/file/
+
+export OLD_LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=/your/path:${LD_LIBRARY_PATH}
+```
+
+then, edit `./etc/conda/deactivate.d/env_vars.sh` as follows:
+
+```sh
+vim ./etc/conda/deactivate.d/env_vars.sh
+```
+
+```sh
+#!/bin/sh
+
+unset MY_KEY
+unset MY_FILE
+
+export LD_LIBRARY_PATH=${OLD_LD_LIBRARY_PATH}
+unset OLD_LD_LIBRARY_PATH
+```
+
+
 # Jupyter Extensions
 
 ```sh
