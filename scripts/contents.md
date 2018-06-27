@@ -146,12 +146,100 @@ jupyter nbextension enable varInspector/main
 ## `Jupyter kernelgateway`
 ### Installation
 
+```py
+pip install jupyter_kernel_gateway
+jupyter kernelgateway --generate-config
+vim ~/.jupyter/jupyter_kernel_gateway_config.py
+```
+
 ## `JupyterHub`
 ### Installation
+
+```sh
+sudo apt-get install npm nodejs-legacy
+sudo npm install -g configurable-http-proxy
+pip install jupyterhub
+jupyterhub --generate-config
+
+```
+
+```sh
+jupyterhub --ip 10.0.1.2 --port 443 --ssl-key my_ssl.key --ssl-cert my_ssl.cert
+```
 
 ##`JupyterLab`]()
 ### Installation
 
+```
+conda install -c conda-forge jupyterlab
+
+jupyter lab
+```
+
 ## Utils
 ### Prepare a hashed password
+
+
+Automatically:
+```sh
+jupyter notebook password
+Enter password:  ****
+Verify password: ****
+[NotebookPasswordApp] Wrote hashed password to /Users/you/.jupyter/jupyter_notebook_config.json
+```
+
+Manually:
+```py
+from notebook.auth import passwd
+passwd()
+Enter password:
+Verify password:
+#Out[2]: '<hashed_password>'
+```
+
+Then, `jupyter_notebook_config.py`:
+```vi
+c.NotebookApp.password = u'<hashed_password>'
+```
+
 ### Launch as a `daemon`
+
+```sh
+cd anaconda3/envs/<your-envs>
+mkdir -p ./etc/conda/activate.d
+mkdir -p ./etc/conda/deactivate.d
+touch ./etc/conda/activate.d/env_vars.sh
+touch ./etc/conda/deactivate.d/env_vars.sh
+```
+
+edit `./etc/conda/activate.d/env_vars.s` first:
+
+```sh
+vim ./etc/conda/activate.d/env_vars.sh
+```
+
+```sh
+#!/bin/sh
+
+export MY_KEY='secret-key-value'
+export MY_FILE=/path/to/my/file/
+
+export OLD_LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=/your/path:${LD_LIBRARY_PATH}
+```
+
+then, edit `./etc/conda/deactivate.d/env_vars.sh` as follows:
+
+```sh
+vim ./etc/conda/deactivate.d/env_vars.sh
+```
+
+```sh
+#!/bin/sh
+
+unset MY_KEY
+unset MY_FILE
+
+export LD_LIBRARY_PATH=${OLD_LD_LIBRARY_PATH}
+unset OLD_LD_LIBRARY_PATH
+```
