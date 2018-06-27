@@ -88,8 +88,17 @@ jupyter kernelspec remove <kernel name>
 ```sh
 pip install jupyter
 jupyter notebook
-jupyter notebook --generate-config
+
 ```
+
+### Config
+
+```sh
+jupyter notebook --generate-config
+vim ~/.jupyter/jupyter_notebook_config.py
+
+```
+[`jupyter_notebook_config.py`]()
 
 ### Extensions
 
@@ -148,9 +157,17 @@ jupyter nbextension enable varInspector/main
 
 ```py
 pip install jupyter_kernel_gateway
+
+```
+
+### Config
+
+```sh
 jupyter kernelgateway --generate-config
 vim ~/.jupyter/jupyter_kernel_gateway_config.py
 ```
+[`jupyter_kernel_gateway_config.py`]()
+
 
 ## `JupyterHub`
 ### Installation
@@ -159,7 +176,6 @@ vim ~/.jupyter/jupyter_kernel_gateway_config.py
 sudo apt-get install npm nodejs-legacy
 sudo npm install -g configurable-http-proxy
 pip install jupyterhub
-jupyterhub --generate-config
 
 ```
 
@@ -167,7 +183,14 @@ jupyterhub --generate-config
 jupyterhub --ip 10.0.1.2 --port 443 --ssl-key my_ssl.key --ssl-cert my_ssl.cert
 ```
 
-##`JupyterLab`]()
+### Config
+
+```sh
+jupyterhub --generate-config
+```
+[`jupyter_notebook_config.py`]()
+
+## `JupyterLab`]()
 ### Installation
 
 ```
@@ -175,6 +198,14 @@ conda install -c conda-forge jupyterlab
 
 jupyter lab
 ```
+
+### Config
+
+```sh
+jupyter lab --generate-config
+```
+[`jupyter_lab_config.py`]()
+
 
 ## Utils
 ### Prepare a hashed password
@@ -243,3 +274,10 @@ unset MY_FILE
 export LD_LIBRARY_PATH=${OLD_LD_LIBRARY_PATH}
 unset OLD_LD_LIBRARY_PATH
 ```
+
+### SSL for Encrypted Communication
+
+```sh
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out mycert.pem
+```
+
