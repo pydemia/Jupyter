@@ -85,6 +85,11 @@ jupyter nbextension enable codefolding/main
 sudo apt-get install texlive-xetex
 ```
 
+for PDF:
+```sh
+pip install nbbrowserpdf
+```
+
 # Jupyter Theme
 
 ## Installation
