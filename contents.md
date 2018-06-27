@@ -19,19 +19,25 @@
 
 * [`Jupyter notebook`](scripts/contents.md#jupyter-notebook)
   - Installation
+  - Config
   - Extensions
     - Theme
     - Variable Explorer
 
 * [`Jupyter kernelgateway`](scripts/contents.md#jupyter-kernelgateway)
   - Installation
+  - Config
 
 * [`JupyterHub`](scripts/contents.md#jupyterhub)
   - Installation
+  - Config
 
 * [`JupyterLab`](scripts/contents.md#jupyterlab)
   - Installation
+  - Config
 
 * [Utils](scripts/contents.md#utils)
   - Prepare a hashed password
   - Launch as a `daemon`
+  - SSL for Encrypted Communication
+
