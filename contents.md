@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-* [Ipython & Jupyter]()
+* [`Ipython` & `Jupyter`]()
   - Installation
   - Install a kernel (with `conda env`)
     - `python`
@@ -17,19 +17,19 @@
     - Launch it(`activate.d`)
     - Remove it
 
-* [Jupyter notebook]()
+* [`Jupyter notebook`]()
   - Installation
   - Extensions
     - Theme
     - Variable Explorer
 
-* [Jupyter kernelgateway]()
+* [`Jupyter kernelgateway`]()
   - Installation
 
-* [JupyterHub]()
+* [`JupyterHub`]()
   - Installation
 
-* [JupyterLab]()
+* [`JupyterLab`]()
   - Installation
 
 * [Utils]()
