@@ -90,6 +90,14 @@ for PDF:
 pip install nbbrowserpdf
 ```
 
+## Jupyter Kernel Gateway (`websocket` mode)
+
+```py
+pip install jupyter_kernel_gateway
+jupyter kernelgateway --generate-config
+vim ~/.jupyter/jupyter_kernel_gateway_config.py
+```
+
 # Jupyter Theme
 
 ## Installation
