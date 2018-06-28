@@ -81,6 +81,10 @@ jupyter kernelspec list
 jupyter kernelspec remove <kernel name>
 ```
 
+### Connect to a kernel
+#### Webbrowser
+#### Websocket
+
 
 ## `Jupyter notebook`
 ### Installation
