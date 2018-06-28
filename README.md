@@ -17,6 +17,10 @@
     - Launch it(`activate.d`)
     - Remove it
 
+  - Connect to a kernel
+    - Webbrowser
+    - Websocket
+
 * [`Jupyter notebook`](scripts/contents.md#jupyter-notebook)
   - Installation
   - Config
