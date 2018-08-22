@@ -45,6 +45,9 @@ install.packages('git2r', type='mac.binary.mavericks')
 
 ```
 
+In `Hydrogen`, install `language-r` for `R-kernel`.
+
+
 #### `julia`
 
 ```sh
