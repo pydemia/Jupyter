@@ -39,6 +39,8 @@ install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtool
 devtools::install_github('IRkernel/IRkernel', force=TRUE)
 IRkernel::installspec()
 
+install.packages('git2r', type='mac.binary.mavericks')
+
 # Sys.getenv('PATH') : If jupyter-kernelspec is not found in $PATH
 
 ```
