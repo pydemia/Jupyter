@@ -270,6 +270,32 @@ c.NotebookApp.password = u'<hashed_password>'
 ### Launch as a `daemon`
 
 ```sh
+cd /etc/systemd/system/
+vim jupyter.service
+
+```
+
+```vi
+[Unit]
+Desciption=Jupyter Notebook
+
+[Service]
+Type=simple
+PIDFile=/run/jupyter.pid
+ExecStart=/home/pydemia/apps/anaconda3/bin/jupyter notebook
+--config=/home/pydemia/.jupyter/jupyter_notebook_config.py
+User=pydemia
+Group=pydemia
+WorkingDirectory=/home/pydemia/workspaces
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+```sh
 cd anaconda3/envs/<your-envs>
 mkdir -p ./etc/conda/activate.d
 mkdir -p ./etc/conda/deactivate.d
