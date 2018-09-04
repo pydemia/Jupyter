@@ -296,6 +296,13 @@ WantedBy=multi-user.target
 ```
 
 ```sh
+systemctl daemon-reload
+service jupyter start
+```
+
+####
+
+```sh
 cd anaconda3/envs/<your-envs>
 mkdir -p ./etc/conda/activate.d
 mkdir -p ./etc/conda/deactivate.d
