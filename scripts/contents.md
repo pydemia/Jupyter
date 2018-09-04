@@ -179,12 +179,33 @@ vim ~/.jupyter/jupyter_kernel_gateway_config.py
 
 
 ## `JupyterHub`
+
+**__ROOT USER ONLY__**
+
 ### Installation
 
 ```sh
-sudo apt-get install npm nodejs-legacy
-sudo npm install -g configurable-http-proxy
-pip install jupyterhub
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+apt-get install nodejs
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+
+apt-get install -y nodejs
+apt-get update
+
+npm -v
+npm install -g configurable-http-proxy
+python3 -m pip install notebook
+
+```
+
+For helps:
+```sh
+jupyterhub -h
+configurable-http-proxy -h
+```
+
+```sh
+python3 -m pip install jupyterhub
 
 ```
 
@@ -195,9 +216,13 @@ jupyterhub --ip 10.0.1.2 --port 443 --ssl-key my_ssl.key --ssl-cert my_ssl.cert
 ### Config
 
 ```sh
+cd
 jupyterhub --generate-config
+mv jupyterhub_config.py .jupyter/
+
+
 ```
-[`jupyter_notebook_config.py`]()
+[`jupyterhub_config.py`]()
 
 ## `JupyterLab`]()
 ### Installation
