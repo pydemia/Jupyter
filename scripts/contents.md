@@ -9,9 +9,12 @@
 * [`JupyterHub`](#jupyterhub)
 * [`JupyterLab`(Experimental)](#jupyterlabexperimental)
 * [`Utils`](#utils)
-
-
-
+  - [Install a kernel (with `conda env`)](#prepare-a-hashed-password)
+  - [Install a kernel (with `conda env`)](#launch-as-a-daemon)
+  - [Install a kernel (with `conda env`)](#ssl-for-encrypted-communication)
+  - [Install a kernel (with `conda env`)](#install-a-kernel-with-conda-env)
+    - [Install a kernel (with `conda env`)](#install-a-kernel-with-conda-env)
+  #extensions
 
 
 ## `Ipython` & `Jupyter`
@@ -348,7 +351,9 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out myce
 ```
 
 
-### Extensions
+### Customization
+
+#### Extensions
 
 ```sh
 conda install -c conda-forge jupyter_contrib_nbextensions
