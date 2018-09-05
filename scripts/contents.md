@@ -165,7 +165,8 @@ apt-get update
 npm -v
 npm install -g configurable-http-proxy
 python3 -m pip install notebook
-
+sudo easy_install virtualenv
+easy_install "module"
 ```
 
 For helps:
