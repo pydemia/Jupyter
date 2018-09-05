@@ -1,5 +1,7 @@
 # Jupyter
 
+* [`Ipython` & `Jupyter`](#ipython--jupyter)
+
 ## `Ipython` & `Jupyter`
 ### Installation
 
