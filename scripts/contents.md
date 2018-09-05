@@ -224,6 +224,24 @@ mv jupyterhub_config.py .jupyter/
 ```
 [`jupyterhub_config.py`]()
 
+
+### Kernel(with `conda`, not `virtualenv` in `/usr/bin/python3`)
+
+```sh
+cd anaconda3/envs/<your-envs>
+mkdir -p ./etc/conda/activate.d
+mkdir -p ./etc/conda/deactivate.d
+touch ./etc/conda/activate.d/env_vars.sh
+touch ./etc/conda/deactivate.d/env_vars.sh
+```
+
+```sh
+python3 -m pip install ipykernel
+
+python3 -m ipykernel install --user --name [virtualEnv] --display-name "[displayKenrelName]"
+python3 -m ipykernel install --user --name tf-py36 --display-name "Tensorflow (python3.6)" --python=3.6
+```
+
 ## `JupyterLab`]()
 ### Installation
 
