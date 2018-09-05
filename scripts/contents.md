@@ -244,6 +244,12 @@ python -m ipykernel install --user --name tf-py36 --display-name "Tensorflow Pyt
 ```
 
 
+```sh
+conda env remove --name tf-py36
+```
+
+
+
 The following has been deprecated.
 ```sh
 python3 -m pip install ipykernel
