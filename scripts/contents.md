@@ -9,10 +9,10 @@
 * [`JupyterHub`](#jupyterhub)
 * [`JupyterLab`(Experimental)](#jupyterlabexperimental)
 * [`Utils`](#utils)
-  - [Install a kernel (with `conda env`)](#prepare-a-hashed-password)
-  - [Install a kernel (with `conda env`)](#launch-as-a-daemon)
-  - [Install a kernel (with `conda env`)](#ssl-for-encrypted-communication)
-  - [Install a kernel (with `conda env`)](#customization)
+  - [Prepare a hashed password](#prepare-a-hashed-password)
+  - [Launch as a `daemon`](#launch-as-a-daemon)
+  - [SSL for Encrypted Communication](#ssl-for-encrypted-communication)
+  - [Customization](#customization)
     - [Extensions](#extensions)
     - [Themes](#themes)
     - [Variable Explorer](#variable-explorer)
@@ -231,6 +231,7 @@ python3 -m ipykernel install --user --name tf-py36 --display-name "Tensorflow (p
 ```
 
 ## `JupyterLab`(Experimental)
+
 ### Installation
 
 ```
@@ -248,6 +249,7 @@ jupyter lab --generate-config
 
 
 ## `Utils`
+
 ### Prepare a hashed password
 
 
@@ -306,47 +308,6 @@ systemctl daemon-reload
 service jupyter start
 ```
 
-####
-
-```sh
-cd anaconda3/envs/<your-envs>
-mkdir -p ./etc/conda/activate.d
-mkdir -p ./etc/conda/deactivate.d
-touch ./etc/conda/activate.d/env_vars.sh
-touch ./etc/conda/deactivate.d/env_vars.sh
-```
-
-edit `./etc/conda/activate.d/env_vars.s` first:
-
-```sh
-vim ./etc/conda/activate.d/env_vars.sh
-```
-
-```sh
-#!/bin/sh
-
-export MY_KEY='secret-key-value'
-export MY_FILE=/path/to/my/file/
-
-export OLD_LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
-export LD_LIBRARY_PATH=/your/path:${LD_LIBRARY_PATH}
-```
-
-then, edit `./etc/conda/deactivate.d/env_vars.sh` as follows:
-
-```sh
-vim ./etc/conda/deactivate.d/env_vars.sh
-```
-
-```sh
-#!/bin/sh
-
-unset MY_KEY
-unset MY_FILE
-
-export LD_LIBRARY_PATH=${OLD_LD_LIBRARY_PATH}
-unset OLD_LD_LIBRARY_PATH
-```
 
 ### SSL for Encrypted Communication
 
