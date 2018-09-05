@@ -227,19 +227,29 @@ mv jupyterhub_config.py .jupyter/
 
 ### Kernel(with `conda`, not `virtualenv` in `/usr/bin/python3`)
 
+
 ```sh
-cd anaconda3/envs/<your-envs>
-mkdir -p ./etc/conda/activate.d
-mkdir -p ./etc/conda/deactivate.d
-touch ./etc/conda/activate.d/env_vars.sh
-touch ./etc/conda/deactivate.d/env_vars.sh
+cd /usr/local/bin
+ln -s /usr/share/anaconda3/bin/conda ./conda
+ln -s /usr/share/anaconda3/bin/activate ./activate
+ln -s /usr/share/anaconda3/bin/deactivate ./deactivate
+
 ```
 
+
+```sh
+conda create -n tf-py36 python=3.6 ipykernel -y
+source activate tf-py36
+python -m ipykernel install --user --name tf-py36 --display-name "Tensorflow Python3.6 (conda env)"
+```
+
+
+The following has been deprecated.
 ```sh
 python3 -m pip install ipykernel
 
 python3 -m ipykernel install --user --name [virtualEnv] --display-name "[displayKenrelName]"
-python3 -m ipykernel install --user --name tf-py36 --display-name "Tensorflow (python3.6)" --python=3.6
+python3 -m ipykernel install --user --name tf-py36 --display-name "Tensorflow (python3.6)" python=3.6
 ```
 
 ## `JupyterLab`]()
