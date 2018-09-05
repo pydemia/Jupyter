@@ -1,6 +1,6 @@
 # Jupyter
 
-
+---
 
 * [`Ipython` & `Jupyter`](#ipython--jupyter)
   - [Install a kernel (with `conda env`)](#install-a-kernel-with-conda-env)
@@ -12,9 +12,13 @@
   - [Install a kernel (with `conda env`)](#prepare-a-hashed-password)
   - [Install a kernel (with `conda env`)](#launch-as-a-daemon)
   - [Install a kernel (with `conda env`)](#ssl-for-encrypted-communication)
-  - [Install a kernel (with `conda env`)](#install-a-kernel-with-conda-env)
-    - [Install a kernel (with `conda env`)](#install-a-kernel-with-conda-env)
-  #extensions
+  - [Install a kernel (with `conda env`)](#customization)
+    - [Extensions](#extensions)
+    - [Themes](#themes)
+    - [Variable Explorer](#variable-explorer)
+
+
+---
 
 
 ## `Ipython` & `Jupyter`
@@ -355,6 +359,8 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out myce
 
 #### Extensions
 
+Basic `nbextensions`:
+
 ```sh
 conda install -c conda-forge jupyter_contrib_nbextensions
 jupyter contrib nbextension install --user
@@ -365,13 +371,14 @@ jupyter nbextensions_configurator enable --user
 jupyter nbextension enable codefolding/main
 ```
 
+
 `Tex` : An Extension for `pdf` support.
 
 ```sh
 sudo apt-get install texlive-xetex
 ```
 
-#### Theme
+#### Themes
 
 ```sh
 jupyter --data-dir  # /home/pydemia/.local/share/jupyter
