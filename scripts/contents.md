@@ -3,10 +3,11 @@
 
 
 * [`Ipython` & `Jupyter`](#ipython--jupyter)
+  - [Install a kernel (with `conda env`)](#install-a-kernel-with-conda-env)
 * [`Jupyter notebook`](#jupyter-notebook)
 * [`Jupyter kernelgateway`](#jupyter-kernelgateway)
 * [`JupyterHub`](#jupyterhub)
-* [`JupyterLab`(Experimental)](#jupyterlab)
+* [`JupyterLab`(Experimental)](#jupyterlabexperimental)
 * [`Utils`](#utils)
 
 
@@ -121,57 +122,6 @@ vim ~/.jupyter/jupyter_notebook_config.py
 
 ```
 [`jupyter_notebook_config.py`](jupyter_notebook_config.py)
-
-### Extensions
-
-```sh
-conda install -c conda-forge jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
-
-conda install -c conda-forge jupyter_nbextensions_configurator
-jupyter nbextensions_configurator enable --user
-
-jupyter nbextension enable codefolding/main
-```
-
-`Tex` : An Extension for `pdf` support.
-
-```sh
-sudo apt-get install texlive-xetex
-```
-
-#### Theme
-
-```sh
-jupyter --data-dir  # /home/pydemia/.local/share/jupyter
-```
-
-```sh
-cd ~/.local/share/jupyter
-mkdir -p nbextensions
-cd nbextensions
-mkdir jupyter_themes
-cd jupyter_themes
-
-wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_selector.js
-
-```
-
-```sh
-cd ..
-jupyter nbextension enable jupyter_themes/theme_selector
-```
-
-#### Variable Explorer
-
-```sh
-pip install jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
-```
-
-```sh
-jupyter nbextension enable varInspector/main
-```
 
 
 ## `Jupyter kernelgateway`
@@ -397,3 +347,54 @@ unset OLD_LD_LIBRARY_PATH
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out mycert.pem
 ```
 
+
+### Extensions
+
+```sh
+conda install -c conda-forge jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+
+conda install -c conda-forge jupyter_nbextensions_configurator
+jupyter nbextensions_configurator enable --user
+
+jupyter nbextension enable codefolding/main
+```
+
+`Tex` : An Extension for `pdf` support.
+
+```sh
+sudo apt-get install texlive-xetex
+```
+
+#### Theme
+
+```sh
+jupyter --data-dir  # /home/pydemia/.local/share/jupyter
+```
+
+```sh
+cd ~/.local/share/jupyter
+mkdir -p nbextensions
+cd nbextensions
+mkdir jupyter_themes
+cd jupyter_themes
+
+wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_selector.js
+
+```
+
+```sh
+cd ..
+jupyter nbextension enable jupyter_themes/theme_selector
+```
+
+#### Variable Explorer
+
+```sh
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+```
+
+```sh
+jupyter nbextension enable varInspector/main
+```
