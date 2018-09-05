@@ -203,6 +203,9 @@ cd /usr/local/bin
 ln -s /usr/share/anaconda3/bin/conda ./conda
 ln -s /usr/share/anaconda3/bin/activate ./activate
 ln -s /usr/share/anaconda3/bin/deactivate ./deactivate
+ln -s /usr/share/anaconda3/bin/jupyter ./jupyter
+ln -s /usr/share/anaconda3/bin/ipykernel ./ipykernel
+ln -s /usr/share/anaconda3/bin/deactivate ./deactivate
 
 ```
 
@@ -323,10 +326,12 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out myce
 Basic `nbextensions`:
 
 ```sh
-conda install -c conda-forge jupyter_contrib_nbextensions
+conda install -c conda-forge jupyter_contrib_nbextensions -y
+jupyter contrib nbextension install  # For all users.
 jupyter contrib nbextension install --user
 
-conda install -c conda-forge jupyter_nbextensions_configurator
+conda install -c conda-forge jupyter_nbextensions_configurator -y
+jupyter nbextensions_configurator enable  # For all users
 jupyter nbextensions_configurator enable --user
 
 jupyter nbextension enable codefolding/main
@@ -336,7 +341,7 @@ jupyter nbextension enable codefolding/main
 `Tex` : An Extension for `pdf` support.
 
 ```sh
-sudo apt-get install texlive-xetex
+sudo apt-get install texlive-xetex -y
 ```
 
 #### Themes
@@ -347,6 +352,8 @@ jupyter --data-dir  # /home/pydemia/.local/share/jupyter
 
 ```sh
 cd ~/.local/share/jupyter
+cd /usr/local/share/jupyter  # For root
+
 mkdir -p nbextensions
 cd nbextensions
 mkdir jupyter_themes
