@@ -236,16 +236,18 @@ ln -s /usr/share/anaconda3/bin/deactivate ./deactivate
 
 ```
 
+#### Install a kernel for all users (`--user` option disabled.)
 
 ```sh
 conda create -n tf-py36 python=3.6 ipykernel -y
 source activate tf-py36
-python -m ipykernel install --user --name tf-py36 --display-name "Tensorflow Python3.6 (conda env)"
+python -m ipykernel install --name tf-py36 --display-name "Tensorflow Python3.6 (conda env)"
 ```
 
+#### Remove a kernel
 
 ```sh
-conda env remove --name tf-py36
+conda env remove --name tf-py36 -y
 ```
 
 
