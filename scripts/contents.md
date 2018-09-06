@@ -190,6 +190,8 @@ jupyterhub --ip 10.0.1.2 --port 443 --ssl-key my_ssl.key --ssl-cert my_ssl.cert
 cd
 jupyterhub --generate-config
 mv jupyterhub_config.py .jupyter/
+mkdir /usr/local/share/jupyter_conf.d
+mv jupyterhub_config.py /usr/local/share/jupyter_conf.d/
 
 
 ```
