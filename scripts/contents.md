@@ -48,9 +48,7 @@ sudo apt-get install gnupg2 -y
 
 
 ```sh
-sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
-gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
-gpg -a --export E084DAB9 | sudo apt-key add -
+echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran35/" | tee -a /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get install r-base r-base-dev
 sudo apt-get install libcurl4-openssl-dev libssl-dev
