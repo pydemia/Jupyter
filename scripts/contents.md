@@ -28,7 +28,7 @@
 pip install ipython jupyter
 conda install nb_conda
 conda install -c conda-forge nb_conda_kernels
-conda install ipykernel ipywidget
+conda install ipykernel ipywidgets
 ```
 
 ### Install a kernel (with `conda env`)
