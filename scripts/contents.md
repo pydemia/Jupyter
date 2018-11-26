@@ -43,6 +43,11 @@ python -m ipykernel install --user --name tf-py36 --display-name "Tensorflow Pyt
 #### `R`
 
 ```sh
+sudo apt-get install gnupg2 -y
+```
+
+
+```sh
 sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
 gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
 gpg -a --export E084DAB9 | sudo apt-key add -
