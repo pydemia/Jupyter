@@ -43,12 +43,13 @@ python -m ipykernel install --user --name tf-py36 --display-name "Tensorflow Pyt
 #### `R`
 
 ```sh
-sudo apt-get install gnupg2 -y
+sudo apt-get install gnupg gnupg1 gnupg2 -y
 ```
 
 
 ```sh
 echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran35/" | tee -a /etc/apt/sources.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 sudo apt-get update
 sudo apt-get install r-base r-base-dev
 sudo apt-get install libcurl4-openssl-dev libssl-dev
