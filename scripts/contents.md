@@ -135,6 +135,24 @@ vim ~/.jupyter/jupyter_notebook_config.py
 [`jupyter_notebook_config.py`](jupyter_notebook_config.py)
 
 
+## `nbgrader`
+
+### Installation
+
+```sh
+pip install nbgrader
+conda install jupyter
+conda install -c conda-forge nbgrader -y
+
+jupyter nbextension install --user --py nbgrader --overwrite
+jupyter nbextension enable --user --py nbgrader
+jupyter serverextension enable --user --py nbgrader
+
+jupyter nbextension enable --user create_assignment/main
+```
+
+
+
 ## `Jupyter kernelgateway`
 ### Installation
 
