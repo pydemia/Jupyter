@@ -28,6 +28,10 @@
     - Theme
     - Variable Explorer
 
+* [`nbgrader`]
+  - Installation
+  - Creating & grading an assignment
+
 * [`Jupyter kernelgateway`](scripts/contents.md#jupyter-kernelgateway)
   - Installation
   - Config
