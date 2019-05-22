@@ -347,6 +347,8 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out myce
 
 #### Extensions
 
+[jupyter-contrib-nbextensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html)
+
 Basic `nbextensions`:
 
 ```sh
