@@ -138,7 +138,8 @@ pip install octave_kernel
 ```diff
 -sudo apt-get install nodejs-legacy npm ipython ipython-notebook
 +sudo apt-get install nodejs-legacy npm
-sudo npm install -g ijavascript
+-sudo npm install -g ijavascript
++npm install -g ijavascript
 ijsinstall
 ```
 
