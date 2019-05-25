@@ -112,7 +112,21 @@ chmod +x coursier
 ```
 
 #### `matlab`
+
+```sh
+pip install matlab_kernel
+```
+
+```vim
+cat ~/.jupyter/matlab_kernel_config.py
+c.MatlabKernel.plot_settings = dict(format='svg')
+```
+
 #### `octave`
+
+```sh
+pip install octave_kernel
+```
 
 ### Manage a kernel
 #### Show it
