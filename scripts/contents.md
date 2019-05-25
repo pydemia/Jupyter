@@ -4,6 +4,7 @@
 
 * [`Ipython` & `Jupyter`](#ipython--jupyter)
   - [Install a kernel (with `conda env`)](#install-a-kernel-with-conda-env)
+  - [Clone a kernel (with `conda env`)](#clone-a-kernel-with-conda-env)
 * [`Jupyter notebook`](#jupyter-notebook)
 * [`Jupyter kernelgateway`](#jupyter-kernelgateway)
 * [`JupyterHub`](#jupyterhub)
@@ -140,6 +141,24 @@ jupyter kernelspec list
 ```sh
 > source activate tf-py36
 (tf-py36)> source deactivate
+```
+
+#### Clone it
+
+```sh
+conda create --name tf2-py36 --clone tf-py36
+```
+
+or
+
+```sh
+conda env create -f environment.yml
+```
+
+#### Archive it
+
+```sh
+conda env export > environment.yml
 ```
 
 #### Remove it
