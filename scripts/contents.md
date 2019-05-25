@@ -38,10 +38,12 @@ pip install nbgrader
 ### Install a kernel (with `conda env`)
 #### `python`
 
-```sh
+```diff
 conda create -n tf-py36 python=3.6 ipykernel -y
-source activate tf-py36
-python -m ipykernel install --user --name tf-py36 --display-name "Tensorflow Python3.6 (conda env)"
+-source activate tf-py36
++conda activate tf-py36
+-python -m ipykernel install --user --name tf-py36 --display-name "Tensorflow Python3.6 (conda env)"
++python -m ipykernel install --user --name tf2-py37 --display-name "Py37-Tensorflow2 (conda env)"
 ```
 
 #### `R`
