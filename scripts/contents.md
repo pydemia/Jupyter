@@ -92,6 +92,25 @@ vim .local/share/jupyter/kernels/julia-0.6/kernel.json
 ```
 
 #### `scala`
+
+```vim
+export SCALA_VERSION_FOR_ALMOND=2.12.8
+export ALMOND_VERSION=0.5.0
+```
+
+```sh
+curl -Lo coursier https://git.io/coursier-cli
+chmod +x coursier
+./coursier bootstrap \
+    -r jitpack \
+    -i user -I user:sh.almond:scala-kernel-api_$SCALA_VERSION_FOR_ALMOND:$ALMOND_VERSION \
+    sh.almond:scala-kernel_$SCALA_VERSION_FOR_ALMOND:$ALMOND_VERSION \
+    -o almond
+
+./almond --install
+#Installed scala kernel under /home/pydemia/.local/share/jupyter/kernels/scala
+```
+
 #### `matlab`
 #### `octave`
 
