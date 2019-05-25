@@ -26,8 +26,12 @@
 
 ```sh
 pip install ipython jupyter
-conda install nb_conda jupyter_contrib_nbextensions ipykernel ipywidgets -y
+conda install nb_conda jupyter_contrib_nbextensions ipykernel ipywidgets ipyparallel -y
 conda install -c conda-forge nb_conda_kernels
+
+pip install jupyter_tensorboard
+pip install nbgrader
+
 ```
 
 ### Install a kernel (with `conda env`)
