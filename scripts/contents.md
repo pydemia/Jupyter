@@ -164,6 +164,7 @@ conda env export > environment.yml
 #### Remove it
 
 ```sh
+conda env remove -n ENV_NAME
 jupyter kernelspec remove <kernel name>
 ```
 
