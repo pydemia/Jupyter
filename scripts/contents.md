@@ -59,15 +59,16 @@ sudo apt-get install libcurl4-openssl-dev libssl-dev
 
 ```
 
-```r
-install.packages('devtools')
-install.packages('httr')
-install.packages('openssl')
-install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))
-devtools::install_github('IRkernel/IRkernel', force=TRUE)
+```diff
+-install.packages('devtools')
+-install.packages('httr')
+-install.packages('openssl')
+-install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'))
+-devtools::install_github('IRkernel/IRkernel', force=TRUE)
++install.packages('IRkernel')
 IRkernel::installspec()
 
-install.packages('git2r', type='mac.binary.mavericks')
+-install.packages('git2r', type='mac.binary.mavericks')
 
 # Sys.getenv('PATH') : If jupyter-kernelspec is not found in $PATH
 
