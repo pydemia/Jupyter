@@ -4,7 +4,7 @@
 
 * [`Ipython` & `Jupyter`](#ipython--jupyter)
   - [Install a kernel (with `conda env`)](#install-a-kernel-with-conda-env)
-  - [Clone a kernel (with `conda env`)](#clone-a-kernel-with-conda-env)
+  - [Clone a kernel (with `conda env`)](#clone-it)
 * [`Jupyter notebook`](#jupyter-notebook)
 * [`Jupyter kernelgateway`](#jupyter-kernelgateway)
 * [`JupyterHub`](#jupyterhub)
