@@ -36,6 +36,8 @@ pip install nbgrader
 ```
 
 ### Install a kernel (with `conda env`)
+[Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
+
 #### `python`
 
 ```diff
@@ -130,6 +132,16 @@ c.MatlabKernel.plot_settings = dict(format='svg')
 ```sh
 pip install octave_kernel
 ```
+
+#### `JavaScript`
+
+```diff
+-sudo apt-get install nodejs-legacy npm ipython ipython-notebook
++sudo apt-get install nodejs-legacy npm
+sudo npm install -g ijavascript
+ijsinstall
+```
+
 
 ### Manage a kernel
 #### Show it
