@@ -104,6 +104,8 @@ export ALMOND_VERSION=0.5.0
 ```
 
 ```sh
+cd git
+https://github.com/almond-sh/almond
 curl -Lo coursier https://git.io/coursier-cli
 chmod +x coursier
 ./coursier bootstrap \
