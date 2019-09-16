@@ -452,7 +452,7 @@ jupyter --data-dir  # /home/pydemia/.local/share/jupyter
 ```
 
 ```sh
-cd ~/.local/share/jupyter
+cd "$(jupyter --data-dir)"
 cd /usr/local/share/jupyter  # For root
 
 mkdir -p nbextensions
@@ -462,9 +462,6 @@ cd jupyter_themes
 
 wget https://raw.githubusercontent.com/merqurio/jupyter_themes/master/theme_selector.js
 
-```
-
-```sh
 cd ..
 jupyter nbextension enable jupyter_themes/theme_selector
 ```
