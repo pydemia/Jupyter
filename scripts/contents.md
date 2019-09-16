@@ -28,7 +28,7 @@
 ```sh
 pip install ipython jupyter
 conda install nb_conda jupyter_contrib_nbextensions ipykernel ipywidgets ipyparallel -y
-conda install -c conda-forge nb_conda_kernels
+conda install -c conda-forge nb_conda_kernels -y
 
 pip install jupyter_tensorboard
 pip install nbgrader
