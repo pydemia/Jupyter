@@ -414,7 +414,177 @@ service jupyter start
 ### SSL for Encrypted Communication
 
 ```sh
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out mycert.pem
+vim pydemia-server-san.cnf
+
+#[req]
+#default_bits       = 2048
+#distinguished_name = req_distinguished_name
+#req_extensions     = v3_req
+#x509_extensions    = v3_req
+#
+#[req_distinguished_name]
+#commonName          = {{ common_name }} Common Name (e.g. server FQDN or YOUR name)
+#emailAddress        = {{ ssl_certs_email }} Email Address
+#organizationName    = {{ ssl_certs_organization }} Organization Name (eg, company)
+#stateOrProvinceName = {{ ssl_certs_state }} State or Province Name (full name)
+#localityName        = {{ ssl_certs_locality }} Locality Name (eg, city)
+#countryName         = {{ ssl_certs_country }} Country Name (2 letter code)
+#
+
+#[ req_ext ]
+#subjectAltName = @alt_names
+
+#[v3_req]
+## The extentions to add to a self-signed cert
+#subjectKeyIdentifier = hash
+#basicConstraints     = critical,CA:false
+#subjectAltName       = DNS:{{ common_name }}
+#keyUsage             = critical,digitalSignature,keyEncipherment
+#--------------------------------------------------------------------
+
+[req]
+default_bits       = 2048
+distinguished_name = req_distinguished_name
+req_extensions     = req_ext
+x509_extensions    = req_ext
+
+[req_distinguished_name]
+commonName          = {{ common_name }} Common Name (e.g. server FQDN or YOUR name)
+emailAddress        = {{ ssl_certs_email }} Email Address
+organizationName    = {{ ssl_certs_organization }} Organization Name (eg, company)
+stateOrProvinceName = {{ ssl_certs_state }} State or Province Name (full name)
+localityName        = {{ ssl_certs_locality }} Locality Name (eg, city)
+countryName         = {{ ssl_certs_country }} Country Name (2 letter code)
+commonName_default          = pydemia
+emailAddress_default        = pydemia@gmail.com
+organizationName_default    = pydemia-org
+stateOrProvinceName_default = Gyeonggi-do
+localityName_default        = Seongnam-si
+countryName_default         = KR
+
+
+[ req_ext ]
+subjectAltName = @alt_names
+#subjectAltName_default = DNS:ubuntu.pydemia.org
+
+[ alt_names ]
+DNS.1 = ubuntu.pydemia.org
+DNS.2 = ubuntu.pydemia.com
+```
+
+
+```sh
+
+openssl genrsa -rand rand.dat -des3 1024 > pydemia-CA.key # pass-phrase:pydemia
+#openssl rsa -in ./pydemia-CA.key -out ./pydemia-CA-nocrpyt.key
+openssl rsa -in ./pydemia-CA.key -out ./pydemia-CA.key
+openssl req -new -key pydemia-CA.key > pydemia-CA.csr -config pydemia-server.cnf
+openssl req -key pydemia-CA.key -x509 -nodes -sha1 -days 3650 -in pydemia-CA.csr -out pydemia-CA.crt -config pydemia-server.cnf
+
+
+openssl md5 * > rand.dat
+openssl genrsa -rand rand.dat -des3 1024 > pydemia-CAkey.pem #pass-phrase:pydemia
+openssl req -new -key pydemia-CAkey.pem > pydemia-CAcsr.pem
+openssl req -key pydemia-CAkey.pem -x509 -nodes -sha1 -days 3650 -in pydemia-CAcsr.pem -out pydemia-CAcrt.pem
+openssl rsa -in ./pydemia-CA.key -out ./pydemia-CA-nocrpyt.key
+
+```
+
+
+```sh
+vim ~/.ssl/pydemia_server_CA_config.cnf
+
+default_bits        = 2048
+distinguished_name  = dn
+x509_extensions     = san
+req_extensions      = san
+extensions          = san
+prompt              = no
+[ dn ]
+countryName         = KR
+stateOrProvinceName = Gyeonggi-do
+localityName        = Seongnam-si
+organizationName    = pydemia-org
+[ san ]
+subjectAltName      = DNS:ubuntu.pydemia.com
+```
+
+```sh
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+distinguished_name = dn
+
+[dn]
+C=DE
+ST=Gyeonggi-do
+L=Seongnam-si
+O=head
+OU=pydemia_server_RootCA
+emailAddress=pydemia@gmail.com
+CN = server.pydemia
+
+```
+
+```sh
+openssl genrsa -out pydemia_server_rootCA.key 2048
+openssl req -x509 -new -nodes -key pydemia_server_rootCA.key -sha256 -days 3650 -out pydemia_server_rootCA.pem
+openssl req -x509 -sha256 -days 365 -key pydemia_server_rootCA.key -out pydemia_server_rootCA.crt -config pydemia_server_CA_config.cnf
+
+
+Here is a solution that works for me:
+
+#Create CA key and cert
+
+openssl genrsa -out pydemia_server_rootCA.key 2048
+openssl req -x509 -new -nodes -key pydemia_server_rootCA.key -sha256 -days 3650 -out pydemia_server_rootCA.pem
+
+#Create server_rootCA.csr.cnf
+
+pydemia_server_rootCA.csr.cnf
+#[req]
+#default_bits = 2048
+#prompt = no
+#default_md = sha256
+#distinguished_name = dn
+#
+#[dn]
+#C=DE
+#ST=Berlin
+#L=NeuKoelln
+#O=Weisestrasse
+#OU=local_RootCA
+#emailAddress=ikke@server.berlin
+#CN = server.berlin
+
+
+#Create v3.ext configuration file
+v3.ext
+#authorityKeyIdentifier=keyid,issuer
+#basicConstraints=CA:FALSE
+#keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+#subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = server.berlin
+Create server key
+
+# openssl req -new -sha256 -nodes -out server.csr -newkey rsa:2048 -keyout server.key -config <( cat server_rootCA.csr.cnf )
+Create server cert
+
+# openssl x509 -req -in server.csr -CA server_rootCA.pem -CAkey server_rootCA.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile v3.ext
+Add cert and key to Apache2 site-file, HTTPS (port 443) section
+
+SSLCertificateFile    /etc/apache2/ssl/server.crt
+SSLCertificateKeyFile    /etc/apache2/ssl/server.key
+Copy server_rootCA.pem from the server to your machine..
+
+# scp you@server.berlin:~/server_rootCA.pem .
+.. and add it to Chromium browser
+
+Chromium -> Setting -> (Advanced) Manage Certificates -> Import -> 'server_rootCA.pem'
+
 ```
 
 
