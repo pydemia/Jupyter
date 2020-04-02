@@ -48,5 +48,6 @@
   - Prepare a hashed password
   - Launch as a `daemon`
   - SSL for Encrypted Communication
+  - Dask & Dask Distributed
 
 ![varInspector_img](https://github.com/pydemia/Jupyter/blob/master/varInspector_image.png)
