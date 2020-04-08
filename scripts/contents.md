@@ -21,6 +21,44 @@
 
 ---
 
+## `Anaconda`
+### Installation
+
+Anaconda archive: [link](https://repo.anaconda.com/archive)
+
+```sh
+wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O install_anaconda3_py37.sh
+
+sudo apt-get update -y
+sudo apt-get install -y locales
+sudo locale-gen --purge "en_US.UTF-8"
+
+sudo bash -c "echo 'LC_ALL=en_US.UTF-8' >> /etc/environment"
+sudo bash -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen"
+sudo bash -c "echo 'LANG=en_US.UTF-8' > /etc/locale.conf"
+
+sudo apt-get install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
+
+bash ./install_anaconda3_py37.sh \
+  -b \
+  -p $CONDA_PATH
+
+sudo bash -c "echo 'export CONDA_PATH=\"/opt/anaconda3\"' >> /etc/profile"
+sudo bash -c "echo 'export PATH=\"\$CONDA_PATH/bin:\$CONDA_PATH/sbin:\$CONDA_PATH/condabin:\$PATH\"' >> /etc/profile"
+
+source /etc/profile
+source /etc/bash.bashrc
+
+sudo groupadd conda
+sudo chgrp -R conda $CONDA_PATH
+sudo chmod 770 -R $CONDA_PATH
+sudo adduser $USER conda
+
+conda init
+source ~/.bashrc
+
+```
+
 
 ## `Ipython` & `Jupyter`
 ### Installation
