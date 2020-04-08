@@ -52,6 +52,8 @@ source /etc/bash.bashrc
 sudo groupadd conda
 sudo chgrp -R conda $CONDA_PATH
 sudo chmod 770 -R $CONDA_PATH
+sudo chgrp -R conda /usr/local/share/jupyter
+sudo chmod 770 -R /usr/local/share/jupyter
 sudo adduser $USER conda
 
 conda init
