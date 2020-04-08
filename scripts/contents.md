@@ -65,8 +65,8 @@ source ~/.bashrc
 
 ```sh
 pip install ipython jupyter
-conda install nb_conda jupyter_contrib_nbextensions ipykernel ipywidgets ipyparallel -y
-conda install -c conda-forge nb_conda_kernels -y
+conda install nb_conda ipykernel ipywidgets ipyparallel -y
+conda install -c conda-forge nb_conda_kernels jupyter_contrib_nbextensions -y
 
 pip install jupyter_tensorboard
 pip install nbgrader
