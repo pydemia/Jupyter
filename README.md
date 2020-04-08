@@ -2,6 +2,9 @@
 
 ## Table of Contents
 
+* Anaconda
+  - Installation
+
 * [`Ipython` & `Jupyter`](scripts/contents.md#ipython--jupyter)
   - Installation
   - Install a kernel (with `conda env`)
