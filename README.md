@@ -52,5 +52,8 @@
   - Launch as a `daemon`
   - SSL for Encrypted Communication
   - Dask & Dask Distributed
+  
+* [Templates](scripts/notebook_template.md)
+  - Template
 
 ![varInspector_img](https://github.com/pydemia/Jupyter/blob/master/varInspector_image.png)
