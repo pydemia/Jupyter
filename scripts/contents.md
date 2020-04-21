@@ -638,8 +638,11 @@ Basic `nbextensions`:
 
 ```sh
 conda install -c conda-forge jupyter_contrib_nbextensions -y
-jupyter contrib nbextension install  # For all users.
-jupyter contrib nbextension install --user
+# jupyter contrib nbextension install  # For all users. : 
+# jupyter contrib nbextension install --user
+# This also automatically installs the Javascript and CSS files
+# (using jupyter contrib nbextension install --sys-prefix),
+# so the second installation step below can therefore be skipped.
 
 conda install -c conda-forge jupyter_nbextensions_configurator -y
 jupyter nbextensions_configurator enable  # For all users
